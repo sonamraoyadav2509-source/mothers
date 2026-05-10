@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Mother's Day</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.container{
+  width:100%;
+  max-width:1100px;
+  background:white;
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* Hero Section */
+
+.hero{
+  position:relative;
+  height:550px;
+}
+
+.hero img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:black;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:20px;
+}
+
+.overlay h1{
+  font-size:65px;
+  margin-bottom:20px;
+}
+
+.overlay p{
+  font-size:22px;
+  max-width:700px;
+  line-height:1.6;
+}
+
+/* Buttons */
+
+.buttons{
+  padding:40px;
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  background:#ff4081;
+  color:white;
+  border:none;
+  padding:16px 32px;
+  border-radius:50px;
+  font-size:20px;
+  cursor:pointer;
+  transition:0.4s;
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);
+}
+
+.btn:hover{
+  background:#e91e63;
+  transform:translateY(-5px) scale(1.05);
+}
+
+/* Popup */
+
+.popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.75);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+}
+
+.popup-content{
+  background:white;
+  width:90%;
+  max-width:450px;
+  border-radius:25px;
+  overflow:hidden;
+  text-align:center;
+  animation:popup 0.5s ease;
+  position:relative;
+}
+
+@keyframes popup{
+  from{
+    opacity:0;
+    transform:scale(0.7);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+.popup-content img{
+  width:100%;
+  height:450px;
+  object-fit:cover;
+}
+
+.popup-content h2{
+  padding:20px;
+  color:#ff4081;
+  font-size:28px;
+}
+
+.close{
+  position:absolute;
+  top:10px;
+  right:18px;
+  font-size:35px;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+  .hero{
+    height:400px;
+  }
+
+  .overlay h1{
+    font-size:40px;
+  }
+
+  .overlay p{
+    font-size:17px;
+  }
+
+  .btn{
+    width:90%;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Main Photo -->
+
+  <div class="hero">
+    <img src="main.jpeg" alt="Main Photo">
+
+    <div class="overlay">
+      <h1>Happy Mother's Day 💖</h1>
+
+      <p>
+        Thank you for every smile, every hug, and every moment of love.
+        You are the heart of our family 🌸
+      </p>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+
+  <div class="buttons">
+
+    <button class="btn"
+      onclick="openPopup('picc1.jpeg','You are my biggest strength ❤️')">
+      Memory 1 💕
+    </button>
+
+    <button class="btn"
+      onclick="openPopup('pic2.jpeg','Your smile makes life beautiful 🌷')">
+      Memory 2 🌸
+    </button>
+
+    <button class="btn"
+      onclick="openPopup('pic3 (2).jpeg','Every moment with you is precious ✨')">
+      Memory 3 💖
+    </button>
+
+  </div>
+
+</div>
+
+<!-- Popup -->
+
+<div class="popup" id="popup">
+
+  <div class="popup-content">
+
+    <span class="close" onclick="closePopup()">×</span>
+
+    <img id="popup-img" src="" alt="Popup Image">
+
+    <h2 id="popup-text"></h2>
+
+  </div>
+
+</div>
+
+<script>
+
+function openPopup(image,text){
+
+  document.getElementById("popup").style.display="flex";
+
+  document.getElementById("popup-img").src=image;
+
+  document.getElementById("popup-text").innerText=text;
+}
+
+function closePopup(){
+
+  document.getElementById("popup").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
